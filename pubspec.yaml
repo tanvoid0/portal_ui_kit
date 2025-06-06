@@ -1,15 +1,15 @@
 name: portal_ui_kit
 description: A reusable UI kit with configurable themes, including a retro theme inspired by nes.css.
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/tanvoid0/portal_ui_kit
 
 environment:
-  sdk: ">=2.17.0 <3.0.0"
-  flutter: ">=2.10.0"
+  sdk: '>=2.17.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
+  flutter_highlight: ^0.7.0
   google_fonts: ^6.2.1
   provider: ^6.0.3
   shared_preferences: ^2.0.15

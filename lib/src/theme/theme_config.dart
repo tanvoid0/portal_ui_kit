@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portal_ui_kit/src/theme/theme_factory.dart';
 
 /// ThemeConfig is the base class for all theme configurations.
 /// It defines the structure for colors, typography, and other theme properties.
@@ -10,6 +11,7 @@ class ThemeConfig {
   final double borderWidth;
   final bool pixelated;
   final BoxShadow? defaultShadow;
+  final ThemeModeType mode;
 
   const ThemeConfig({
     required this.name,
@@ -19,6 +21,7 @@ class ThemeConfig {
     this.borderWidth = 2.0,
     this.pixelated = false,
     this.defaultShadow,
+    this.mode = ThemeModeType.light,
   });
 
   /// Convert the theme config to a Flutter ThemeData

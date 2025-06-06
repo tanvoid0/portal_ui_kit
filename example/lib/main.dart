@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:portal_ui_kit/portal_ui_kit.dart';
 
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
   runApp(
     ThemeProvider.createProvider(
       themes: [
-        RetroTheme(),
-        RetroTheme.dark(),
-        RetroTheme.custom(
-          name: 'Retro Green',
-          primaryColor: const Color(0xFF4CAF50),
-          backgroundColor: const Color(0xFFE8F5E9),
-          textColor: const Color(0xFF1B5E20),
-        ),
+        ...customThemes,
+        // RetroTheme(),
+        // RetroTheme.dark(),
+        // RetroTheme.custom(
+        //   name: 'Retro Green',
+        //   primaryColor: const Color(0xFF4CAF50),
+        //   backgroundColor: const Color(0xFFE8F5E9),
+        //   textColor: const Color(0xFF1B5E20),
+        // ),
       ],
       initialThemeName: 'Retro',
       initialThemeMode: ThemeMode.system,
@@ -53,6 +55,7 @@ class PortalApp extends StatelessWidget {
 
     return MaterialApp(
       title: 'Portal UI Kit Demo',
+      debugShowCheckedModeBanner: false,
       theme: themeData,
       darkTheme: darkThemeData,
       themeMode: themeMode,
@@ -102,12 +105,12 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      floatingActionButton: ThemeSwitcherFab(),
+      floatingActionButton: const ThemeSwitcherFab(),
     );
   }
 
   Widget _buildTabBar() {
-    return Container(
+    return SizedBox(
       height: 50,
       child: ListView(
         scrollDirection: Axis.horizontal,
@@ -186,6 +189,20 @@ class _HomePageState extends State<HomePage> {
                 variant: ButtonVariant.primary,
                 child: const Text('Primary'),
               ),
+              // CodePreviewTabs(
+              //   code: '''
+              //   StyledButton(
+              //     onPressed: () {},
+              //     variant: ButtonVariant.primary,
+              //     child: const Text('Code Preview'),
+              //   )
+              //   ''',
+              //   child: StyledButton(
+              //     onPressed: () {},
+              //     variant: ButtonVariant.primary,
+              //     child: const Text('Code Preview'),
+              //   )
+              // ),
               StyledButton(
                 onPressed: () {},
                 variant: ButtonVariant.secondary,
@@ -295,19 +312,19 @@ class _HomePageState extends State<HomePage> {
             hintText: 'Enter some text',
           ),
           const SizedBox(height: 16),
-          StyledTextField(
+          const StyledTextField(
             labelText: 'With Helper Text',
             hintText: 'Enter some text',
             helperText: 'This is a helper text',
           ),
           const SizedBox(height: 16),
-          StyledTextField(
+          const StyledTextField(
             labelText: 'With Error',
             hintText: 'Enter some text',
             errorText: 'This field has an error',
           ),
           const SizedBox(height: 16),
-          StyledTextField(
+          const StyledTextField(
             labelText: 'Disabled',
             hintText: 'This field is disabled',
             enabled: false,
@@ -326,7 +343,7 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(height: 32),
           const Text('Text Area', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           const SizedBox(height: 16),
-          StyledTextArea(
+          const StyledTextArea(
             labelText: 'Multiline Text Area',
             hintText: 'Enter multiple lines of text',
             minLines: 3,
@@ -355,19 +372,19 @@ class _HomePageState extends State<HomePage> {
         children: [
           const Text('Cards', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           const SizedBox(height: 16),
-          StyledCard(
-            child: const Text('Basic Card'),
+          const StyledCard(
+            child: Text('Basic Card'),
           ),
           const SizedBox(height: 16),
-          StyledCard(
+          const StyledCard(
             title: 'Card with Title',
-            child: const Text('This card has a title'),
+            child: Text('This card has a title'),
           ),
           const SizedBox(height: 16),
-          StyledCard(
+          const StyledCard(
             title: 'Card with Title and Subtitle',
             subtitle: 'This is a subtitle',
-            child: const Text('This card has a title and subtitle'),
+            child: Text('This card has a title and subtitle'),
           ),
           const SizedBox(height: 16),
           StyledCard(
@@ -387,7 +404,6 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(height: 16),
           StyledCard(
             title: 'Card with Footer',
-            child: const Text('This card has a footer'),
             footer: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -402,18 +418,19 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
+            child: const Text('This card has a footer'),
           ),
           const SizedBox(height: 32),
           const Text('Containers', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           const SizedBox(height: 16),
-          StyledContainer(
-            child: const Text('Basic Container'),
+          const StyledContainer(
+            child: Text('Basic Container'),
           ),
           const SizedBox(height: 16),
-          StyledContainer(
+          const StyledContainer(
             borderRadius: 16,
             showShadow: true,
-            child: const Text('Container with Shadow'),
+            child: Text('Container with Shadow'),
           ),
         ],
       ),
@@ -515,21 +532,21 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(height: 16),
           const Text('Dropdown Style'),
           const SizedBox(height: 8),
-          ThemeSwitcher(
+          const ThemeSwitcher(
             title: 'Select Theme',
             style: ThemeSwitcherStyle.dropdown,
           ),
           const SizedBox(height: 16),
           const Text('Radio Style'),
           const SizedBox(height: 8),
-          ThemeSwitcher(
+          const ThemeSwitcher(
             title: 'Select Theme',
             style: ThemeSwitcherStyle.radio,
           ),
           const SizedBox(height: 16),
           const Text('Button Style'),
           const SizedBox(height: 8),
-          ThemeSwitcher(
+          const ThemeSwitcher(
             title: 'Select Theme',
             style: ThemeSwitcherStyle.buttons,
           ),
@@ -537,7 +554,7 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(height: 32),
           const Text('Theme Mode', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           const SizedBox(height: 16),
-          ThemeSwitcher(
+          const ThemeSwitcher(
             showThemeMode: true,
             showColorCustomization: false,
           ),
@@ -545,7 +562,7 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(height: 32),
           const Text('Color Customization', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           const SizedBox(height: 16),
-          ThemeSwitcher(
+          const ThemeSwitcher(
             showThemeMode: false,
             showColorCustomization: true,
           ),
@@ -612,7 +629,7 @@ class _HomePageState extends State<HomePage> {
     StyledDialog.show(
       context: context,
       title: 'Theme Settings',
-      content: SingleChildScrollView(
+      content: const SingleChildScrollView(
         child: ThemeSwitcher(
           style: ThemeSwitcherStyle.radio,
           showThemeMode: true,

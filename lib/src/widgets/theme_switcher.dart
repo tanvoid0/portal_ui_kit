@@ -330,7 +330,7 @@ class ThemeSwitcher extends StatelessWidget {
       context: context,
       builder: (context) => AlertDialog(
         title: Text('Select $label Color'),
-        content: Container(
+        content: SizedBox(
           width: 300,
           child: Wrap(
             spacing: 8,

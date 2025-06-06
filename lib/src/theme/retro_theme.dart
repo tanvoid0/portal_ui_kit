@@ -125,28 +125,28 @@ class RetroTheme extends ThemeConfig {
   }
 
   // Default retro color scheme (light)
-  static final ColorScheme _defaultRetroColorScheme = ColorScheme(
-    primary: const Color(0xFF209CEE),
+  static const ColorScheme _defaultRetroColorScheme = ColorScheme(
+    primary: Color(0xFF209CEE),
     onPrimary: Colors.white,
-    secondary: const Color(0xFF92CC41),
+    secondary: Color(0xFF92CC41),
     onSecondary: Colors.white,
     surface: Colors.white,
-    onSurface: const Color(0xFF212529),
-    error: const Color(0xFFE76E55),
+    onSurface: Color(0xFF212529),
+    error: Color(0xFFE76E55),
     onError: Colors.white,
     brightness: Brightness.light,
-    outline: const Color(0xFF212529),
+    outline: Color(0xFF212529),
   );
 
   // Dark retro color scheme
-  static final ColorScheme _darkRetroColorScheme = ColorScheme(
-    primary: const Color(0xFF209CEE),
+  static const ColorScheme _darkRetroColorScheme = ColorScheme(
+    primary: Color(0xFF209CEE),
     onPrimary: Colors.white,
-    secondary: const Color(0xFF92CC41),
+    secondary: Color(0xFF92CC41),
     onSecondary: Colors.white,
-    surface: const Color(0xFF212529),
+    surface: Color(0xFF212529),
     onSurface: Colors.white,
-    error: const Color(0xFFE76E55),
+    error: Color(0xFFE76E55),
     onError: Colors.white,
     brightness: Brightness.dark,
     outline: Colors.white,

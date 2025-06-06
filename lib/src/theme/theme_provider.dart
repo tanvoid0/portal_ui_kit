@@ -298,7 +298,7 @@ class ThemeProvider extends ChangeNotifier {
         }
 
         // Show a loading indicator while the ThemeProvider is being initialized
-        return MaterialApp(
+        return const MaterialApp(
           home: Scaffold(
             body: Center(
               child: CircularProgressIndicator(),
@@ -323,7 +323,7 @@ extension ThemeProviderExtension on BuildContext {
   ThemeProvider get watchThemeProvider => ThemeProvider.of(this);
 
   /// Get the current theme configuration
-  ThemeConfig get themeConfig => ThemeProvider.of(this).theme;
+  ThemeConfig get themeConfig => ThemeProvider.of(this, listen: false).theme;
 
   /// Get the current theme data
   ThemeData get themeData => ThemeProvider.of(this).themeData;
