@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../theme/theme_config.dart';
 import '../theme/theme_provider.dart';
 
 /// A styled button that follows the theme configuration.

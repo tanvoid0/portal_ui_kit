@@ -241,7 +241,7 @@ class ThemeSwitcher extends StatelessWidget {
         _buildColorPicker(
           context,
           'Background',
-          colorScheme.background,
+          colorScheme.surface,
           (color) => ThemeProvider.of(context, listen: false).updateThemeColors(background: color),
         ),
         const SizedBox(height: 8),

@@ -1,202 +1,100 @@
 # Portal UI Kit
 
-A reusable Flutter UI kit with configurable themes, including a retro theme inspired by [NES.css](https://nostalgic-css.github.io/NES.css/).
+## Overview
+
+The Portal UI Kit is a reusable UI kit for Flutter applications, providing a configurable theme with a retro style inspired by [Nes.css](https://github.com/suora/nes.css). This library makes it easy to create visually appealing and consistent interfaces for your Flutter apps.
 
 ## Features
 
-- **Configurable Themes**: Easily switch between themes or create your own
-- **Retro Theme**: Pixel-perfect styling inspired by 8-bit design
-- **Theme Switching**: Change themes programmatically or via UI widgets
-- **Common UI Components**: Pre-styled buttons, text fields, cards, dialogs, and more
-- **Highly Customizable**: Adjust colors, fonts, border styles, and more
-
-## Installation
-
-Add this to your `pubspec.yaml`:
-
-```yaml
-dependencies:
-  portal_ui_kit: ^0.0.1
-```
-
-Or use the local path if you're working with the source code:
-
-```yaml
-dependencies:
-  portal_ui_kit:
-    path: ../portal_ui_kit
-```
-
-## Required Font
-
-For the retro theme to work properly, you need to include the "Press Start 2P" font in your project:
-
-1. Add the font to your assets:
-
-```yaml
-flutter:
-  fonts:
-    - family: Press Start 2P
-      fonts:
-        - asset: assets/fonts/PressStart2P-Regular.ttf
-```
-
-2. Download the font from [Google Fonts](https://fonts.google.com/specimen/Press+Start+2P) and place it in your assets folder.
+* Configurable themes with customizable colors, text sizes, and borders
+* Retro-style UI elements, such as pixelated buttons and bright colors
+* Theme switcher widget to easily toggle between different themes
+* Support for dark mode and custom theme options
 
 ## Usage
 
-### Basic Setup
+To use the Portal UI Kit in your Flutter app, follow these steps:
 
-Wrap your app with the `ThemeProvider` to enable theme functionality:
+1. Add the library to your `pubspec.yaml` file:
+```yaml
+dependencies:
+  portal_ui_kit: ^0.0.2
+```
 
+2. Import the library in your main Dart file:
 ```dart
-import 'package:flutter/material.dart';
 import 'package:portal_ui_kit/portal_ui_kit.dart';
+```
 
+3. Wrap your app with the `ThemeProvider` widget and specify your themes:
+```dart
 void main() {
-  runApp(const MyApp());
-}
+  WidgetsFlutterBinding.ensureInitialized();
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ThemeProvider.createProvider(
+  runApp(
+    ThemeProvider.createProvider(
       themes: [
         RetroTheme(),
         RetroTheme.dark(),
-        // Add more themes as needed
+        RetroTheme.custom(
+          name: 'Retro Green',
+          primaryColor: const Color(0xFF4CAF50),
+          backgroundColor: const Color(0xFFE8F5E9),
+          textColor: const Color(0xFF1B5E20),
+        ),
       ],
       initialThemeName: 'Retro',
-      child: Builder(
-        builder: (context) {
-          // Get the current theme from the provider
-          final themeData = context.themeData;
-          
-          return MaterialApp(
-            title: 'My App',
-            theme: themeData,
-            home: const HomePage(),
-          );
-        },
-      ),
-    );
-  }
+      initialThemeMode: ThemeMode.system,
+      child: const MyApp(),
+    ),
+  );
 }
 ```
 
-### Using Components
-
-The UI kit provides various pre-styled components:
-
+4. Use the theme switcher widget in your app:
 ```dart
-// Buttons
-StyledButton(
-  onPressed: () {},
-  variant: ButtonVariant.primary,
-  child: const Text('Primary Button'),
-)
-
-// Text Fields
-StyledTextField(
-  labelText: 'Username',
-  hintText: 'Enter your username',
-)
-
-// Cards
-StyledCard(
-  title: 'Card Title',
-  subtitle: 'Card Subtitle',
-  child: const Text('Card content goes here'),
-)
-
-// Dialogs
-StyledAlertDialog.show(
-  context: context,
-  title: 'Information',
-  message: 'This is an information dialog.',
-  type: DialogType.info,
-)
-
-// Toast Messages
-StyledToast.show(
-  context, 
-  'This is a toast message', 
-  type: ToastType.success
-)
-```
-
-### Switching Themes
-
-#### Programmatically
-
-```dart
-// Get the theme provider
-final themeProvider = context.themeProvider;
-
-// Change the theme
-themeProvider.setTheme('Retro Dark');
-```
-
-#### Using UI Widgets
-
-```dart
-// Dropdown theme switcher
 ThemeSwitcher(
-  title: 'Select Theme',
+  title: 'Theme Switcher',
   style: ThemeSwitcherStyle.dropdown,
+  showThemeMode: true,
 )
-
-// Floating action button theme switcher
-ThemeSwitcherFab()
 ```
 
-### Creating Custom Themes
 
-You can create custom themes by extending the base `ThemeConfig` class or using the factory methods:
+## Customization
 
+You can customize the Portal UI Kit to fit your specific needs by modifying the `theme_config.dart` file. This file provides a set of pre-defined themes and color schemes that you can modify or extend.
+
+### Example: Customizing the Retro Theme
+
+To create a custom retro theme, you can modify the `RetroTheme` class in `theme/retro_theme.dart`. For example:
 ```dart
-// Using RetroTheme.custom factory
-final customTheme = RetroTheme.custom(
-  name: 'Custom Green',
-  primaryColor: const Color(0xFF4CAF50),
-  backgroundColor: const Color(0xFFE8F5E9),
-  textColor: const Color(0xFF1B5E20),
-);
+class CustomRetroTheme extends RetroTheme {
+  const CustomRetroTheme({
+    String name = 'Custom Retro',
+    ColorScheme? colorScheme,
+    TextTheme? textTheme,
+    double borderRadius = 0.0, // Pixel-perfect corners
+    double borderWidth = 4.0, // Thick borders
+    BoxShadow? defaultShadow,
+  }) : super(
+          name: name,
+          colorScheme: colorScheme ?? _defaultCustomRetroColorScheme,
+          textTheme: textTheme ?? _defaultCustomRetroTextTheme,
+          borderRadius: borderRadius,
+          borderWidth: borderWidth,
+          pixelated: true,
 
-// Add the theme to the provider
-context.themeProvider.addTheme(customTheme);
+    );
+}
+
+// Custom colors scheme
+class _CustomRetroColorScheme extends ColorScheme {
+  @override
+  Color get primaryColor => const Color(0xFF3498DB);
+  @override
+  Color get secondaryColor => const Color(0xFFF1C40F);
+}
 ```
 
-## Components
-
-### Buttons
-- `StyledButton`: Standard button with various styles
-- `StyledIconButton`: Icon button with various styles
-
-### Text Fields
-- `StyledTextField`: Standard text input field
-- `StyledTextArea`: Multiline text input
-- `StyledSearchField`: Search field with search icon
-
-### Cards and Containers
-- `StyledCard`: Card with optional title, subtitle, and footer
-- `StyledContainer`: Simple container with border and shadow options
-
-### Dialogs and Notifications
-- `StyledDialog`: Customizable dialog
-- `StyledAlertDialog`: Pre-configured dialog with icon and standard buttons
-- `StyledToast`: Toast message system
-
-### Theme Switching
-- `ThemeSwitcher`: Widget for switching between available themes
-- `ThemeSwitcherFab`: Floating action button for theme switching
-
-## Example
-
-Check out the example app in the `example` directory for a complete demonstration of all components and features.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+Note that this is just an example, and you can customize the `CustomRetroTheme` class to fit your specific needs.

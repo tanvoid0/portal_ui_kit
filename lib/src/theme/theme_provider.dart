@@ -94,7 +94,7 @@ class ThemeProvider extends ChangeNotifier {
     final primary = colors['primary'] != null ? parseColor(colors['primary']) : currentColorScheme.primary;
     final secondary = colors['secondary'] != null ? parseColor(colors['secondary']) : currentColorScheme.secondary;
     final surface = colors['surface'] != null ? parseColor(colors['surface']) : currentColorScheme.surface;
-    final background = colors['background'] != null ? parseColor(colors['background']) : currentColorScheme.background;
+    final background = colors['background'] != null ? parseColor(colors['background']) : currentColorScheme.surface;
     final error = colors['error'] != null ? parseColor(colors['error']) : currentColorScheme.error;
 
     // Create a new color scheme
@@ -102,7 +102,6 @@ class ThemeProvider extends ChangeNotifier {
       primary: primary,
       secondary: secondary,
       surface: surface,
-      background: background,
       error: error,
     );
 
@@ -174,7 +173,6 @@ class ThemeProvider extends ChangeNotifier {
       primary: primary ?? currentColorScheme.primary,
       secondary: secondary ?? currentColorScheme.secondary,
       surface: surface ?? currentColorScheme.surface,
-      background: background ?? currentColorScheme.background,
       error: error ?? currentColorScheme.error,
     );
 
@@ -211,7 +209,7 @@ class ThemeProvider extends ChangeNotifier {
       'primary': colorToHex(colorScheme.primary),
       'secondary': colorToHex(colorScheme.secondary),
       'surface': colorToHex(colorScheme.surface),
-      'background': colorToHex(colorScheme.background),
+      'background': colorToHex(colorScheme.surface),
       'error': colorToHex(colorScheme.error),
     };
 

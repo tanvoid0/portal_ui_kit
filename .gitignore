@@ -1,2 +1,5 @@
 .idea/
 .dart_tool/
+example/.idea/
+example/.dart_tool/
+example/.metadata

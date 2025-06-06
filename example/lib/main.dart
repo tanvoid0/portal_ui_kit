@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portal_ui_kit/portal_ui_kit.dart';
-import 'package:provider/provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -577,7 +576,7 @@ class _HomePageState extends State<HomePage> {
           _buildColorSwatch('Primary', colorScheme.primary),
           _buildColorSwatch('Secondary', colorScheme.secondary),
           _buildColorSwatch('Surface', colorScheme.surface),
-          _buildColorSwatch('Background', colorScheme.background),
+          _buildColorSwatch('Background', colorScheme.surface),
           _buildColorSwatch('Error', colorScheme.error),
         ],
       ),

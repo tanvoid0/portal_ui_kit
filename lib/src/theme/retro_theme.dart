@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'theme_config.dart';
 
 /// RetroTheme is a theme configuration inspired by nes.css
@@ -46,8 +47,6 @@ class RetroTheme extends ThemeConfig {
       onSecondary: Colors.white,
       surface: backgroundColor,
       onSurface: textColor,
-      background: backgroundColor,
-      onBackground: textColor,
       error: Colors.red.shade800,
       onError: Colors.white,
       brightness: ThemeData.estimateBrightnessForColor(backgroundColor),
@@ -133,8 +132,6 @@ class RetroTheme extends ThemeConfig {
     onSecondary: Colors.white,
     surface: Colors.white,
     onSurface: const Color(0xFF212529),
-    background: const Color(0xFFF8F8F8),
-    onBackground: const Color(0xFF212529),
     error: const Color(0xFFE76E55),
     onError: Colors.white,
     brightness: Brightness.light,
@@ -149,8 +146,6 @@ class RetroTheme extends ThemeConfig {
     onSecondary: Colors.white,
     surface: const Color(0xFF212529),
     onSurface: Colors.white,
-    background: const Color(0xFF2F3336),
-    onBackground: Colors.white,
     error: const Color(0xFFE76E55),
     onError: Colors.white,
     brightness: Brightness.dark,
@@ -159,51 +154,43 @@ class RetroTheme extends ThemeConfig {
 
   // Default retro text theme with pixel-perfect font
   static final TextTheme _defaultRetroTextTheme = TextTheme(
-    displayLarge: TextStyle(
-      fontFamily: 'Press Start 2P',
+    displayLarge: GoogleFonts.pressStart2p(
       fontSize: 24,
       fontWeight: FontWeight.bold,
-      color: _defaultRetroColorScheme.onBackground,
+      color: _defaultRetroColorScheme.onSurface,
     ),
-    displayMedium: TextStyle(
-      fontFamily: 'Press Start 2P',
+    displayMedium: GoogleFonts.pressStart2p(
       fontSize: 20,
       fontWeight: FontWeight.bold,
-      color: _defaultRetroColorScheme.onBackground,
+      color: _defaultRetroColorScheme.onSurface,
     ),
-    displaySmall: TextStyle(
-      fontFamily: 'Press Start 2P',
+    displaySmall: GoogleFonts.pressStart2p(
       fontSize: 18,
       fontWeight: FontWeight.bold,
-      color: _defaultRetroColorScheme.onBackground,
+      color: _defaultRetroColorScheme.onSurface,
     ),
-    headlineMedium: TextStyle(
-      fontFamily: 'Press Start 2P',
+    headlineMedium: GoogleFonts.pressStart2p(
       fontSize: 16,
       fontWeight: FontWeight.bold,
-      color: _defaultRetroColorScheme.onBackground,
+      color: _defaultRetroColorScheme.onSurface,
     ),
-    titleLarge: TextStyle(
-      fontFamily: 'Press Start 2P',
+    titleLarge: GoogleFonts.pressStart2p(
       fontSize: 14,
       fontWeight: FontWeight.bold,
-      color: _defaultRetroColorScheme.onBackground,
+      color: _defaultRetroColorScheme.onSurface,
     ),
-    bodyLarge: TextStyle(
-      fontFamily: 'Press Start 2P',
+    bodyLarge: GoogleFonts.pressStart2p(
       fontSize: 12,
-      color: _defaultRetroColorScheme.onBackground,
+      color: _defaultRetroColorScheme.onSurface,
     ),
-    bodyMedium: TextStyle(
-      fontFamily: 'Press Start 2P',
+    bodyMedium: GoogleFonts.pressStart2p(
       fontSize: 10,
-      color: _defaultRetroColorScheme.onBackground,
+      color: _defaultRetroColorScheme.onSurface,
     ),
-    labelLarge: TextStyle(
-      fontFamily: 'Press Start 2P',
+    labelLarge: GoogleFonts.pressStart2p(
       fontSize: 12,
       fontWeight: FontWeight.bold,
-      color: _defaultRetroColorScheme.onBackground,
+      color: _defaultRetroColorScheme.onSurface,
     ),
   );
 

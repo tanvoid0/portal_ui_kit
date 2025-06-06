@@ -27,7 +27,7 @@ class ThemeConfig {
       colorScheme: colorScheme,
       textTheme: textTheme,
       useMaterial3: true,
-      scaffoldBackgroundColor: colorScheme.background,
+      scaffoldBackgroundColor: colorScheme.surface,
       appBarTheme: AppBarTheme(
         backgroundColor: colorScheme.primary,
         foregroundColor: colorScheme.onPrimary,
