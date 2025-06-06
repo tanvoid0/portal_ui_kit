@@ -1,0 +1,28 @@
+name: portal_ui_kit_example
+description: Example app for Portal UI Kit
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+  flutter: ">=2.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  portal_ui_kit:
+    path: ../
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  
+  fonts:
+    - family: Press Start 2P
+      fonts:
+        - asset: assets/fonts/PressStart2P-Regular.ttf
